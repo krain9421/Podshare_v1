@@ -17,9 +17,6 @@ from models.comment import Comment
 
 classes = {"BaseModel": BaseModel, "User": User, "Post": Post,
             "Comment": Comment}
-# DEBUGGING
-for k, v in models.storage.all("Users"):
-        print("{} {}\n".format(k, v))
 
 class PodShareCommand(cmd.Cmd):
     """ PodShare console """
