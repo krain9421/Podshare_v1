@@ -12,14 +12,19 @@ class Post(BaseModel):
     likes (list)
     numberOfPlays (int)
     """
+    """audioId = ""
+    caption = ""
+    userId = ""
+    likes = []
+    numberOfPlays = 0"""
 
     def __init__(self, *args, **kwargs):
-        """Initializes a Post object"""
-        super().__init__(*args, **kwargs)
         self.audioId = ""
         self.caption = ""
         self.userId = ""
         self.likes = []
         self.numberOfPlays = 0
+        """Initializes a Post object"""
+        super().__init__(*args, **kwargs)
 
     

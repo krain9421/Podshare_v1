@@ -15,13 +15,17 @@ classes = {"User": User, "Post": Post, "Comment": Comment}
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""
     __file_path = "file.json"
-    __users_path = "users.json"
+    __users_path = "./users/users.json"
+    __posts_path = ""
     __objects = {}
     __users = {}
+    __posts = {}
 
 
     def all(self, cls=None):
         """returns the dictionary __objects"""
+        if cls == User or cls == "User":
+            return self.__users
         if cls is not None:
             new_dict = {}
             for key, value in self.__objects.items():
@@ -34,11 +38,15 @@ class FileStorage:
         """sets in __objects the obj with key <obj class name>.id"""
         if obj is not None and obj.__class__ is User:
             try:
+                # os.makedir(__users_directory)
                 os.makedirs("users/{}".format(obj.username))
+                # self.__posts_path = "./users/{}/posts.json".format(obj.username)
             except:
                 pass
+            self.__posts_path = "./users/{}/posts.json".format(obj.username)
             key = obj.__class__.__name__ + "." + obj.id
             self.__users[key] = obj
+            self.__posts = obj.posts
         elif obj is not None:
             key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
@@ -55,6 +63,8 @@ class FileStorage:
             json.dump(json_objects,f)
         with open(self.__users_path, 'w') as f:
             json.dump(json_users,f)
+        with open(self.__posts_path, 'w') as f:
+            json.dump(self.__posts,f)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
@@ -63,6 +73,14 @@ class FileStorage:
                 jo =  json.load(f)
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
+        except:
+            pass
+
+        try:
+            with open(self.__users_path, 'r') as f:
+                jo = json.load(f)
+            for key in jo:
+                self.__users[key] = classes[jo[key]["__class__"]](**jo[key])
         except:
             pass
 

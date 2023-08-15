@@ -18,10 +18,19 @@ class User(BaseModel):
     likes (dict)
     lists (dict)
     """
+    """username = ""
+    email = ""
+    passwd = ""
+    first_name = ""
+    last_name = ""
+    posts = {}
+    followers = []
+    following = []
+    likes = {}
+    lists = {}"""
 
     def __init__(self, *args, **kwargs):
-        """Initializes a user object"""
-        super().__init__(*args, **kwargs)
+        """Initializes a User object"""
         self.username = ""
         self.email = ""
         self.passwd = ""
@@ -32,17 +41,17 @@ class User(BaseModel):
         self.following = []
         self.likes = {}
         self.lists = {}
+        super().__init__(*args, **kwargs)
 
     def createPost(self, caption=None):
-        """Creates a PodShare post for a user"""
+        """Creates a post for a user"""
         new_Post = Post()
         new_Post.audioId = None
         new_Post.userId = self.id
-        if caption is None:
-            print("Posts must have a caption\n")
+        if caption is not None:
+            new_Post.caption = str(caption)
+            key = "{:s}.{:s}".format(new_Post.__class__.__name__, new_Post.id)
+            value = new_Post.to_dict()
+            self.posts[key] = value
         else:
-            new_Post.caption = caption
-
-        key = "[{:s}].{:s}".format(new_Post.__class__.__name__, new_Post.id)
-        value = new_Post.to_dict()
-        self.posts[key] = value
+            print("Posts must have a caption\n")

@@ -8,6 +8,7 @@ import inspect
 import shlex
 import re
 import os
+import models
 from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
@@ -16,10 +17,14 @@ from models.comment import Comment
 
 classes = {"BaseModel": BaseModel, "User": User, "Post": Post,
             "Comment": Comment}
+# DEBUGGING
+for k, v in models.storage.all("Users"):
+        print("{} {}\n".format(k, v))
 
 class PodShareCommand(cmd.Cmd):
     """ PodShare console """
     prompt = '(podshare) '
+    __logged = False 
 
     def do_EOF(self, arg):
         """ Exits the console """
@@ -54,11 +59,11 @@ class PodShareCommand(cmd.Cmd):
                 new_dict[key] = value
         return new_dict
 
-    def do_create(self, arg):
-        """Creates a new instance of BaseModel,
+    """def do_create(self, arg):
+        Creates a new instance of BaseModel,
             saves it to the JSON file and prints
             the id.
-        """
+        
         args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -71,25 +76,61 @@ class PodShareCommand(cmd.Cmd):
             print(f'new_dict {new_dict}')
             new_instance = classes[args[0]](**new_dict)
             print(new_instance.id)
+    """
 
-    def do_createUser(self, arg):
-        """Creates a User instance with a username and password"""
+    def _username_checker(self, arg):
+        """Checks if a username already exists in the database"""
+        for key in models.storage.all("User"):
+            if arg == models.storage.all("User")[key].username:
+                return False
+        return True
+
+    def do_create(self, arg):
+        """Creates a new User instance and saves the instance to a json file"""
         args = arg.split()
         if len(args) == 0:
             print("** username missing **")
             return False
+        """if len(args) < 2:
+            print("** password missing **")
+            return False"""
         if not re.match(r'[A-Za-z0-9]+', args[0]):
             print("** username must contain only characters and numbers ! **")
             return False
-        if not args[1]:
-            print("** password missing **")
+        if not self._username_checker(args[0]):
+            print("** username already exists **")
             return False
         else:
             new_instance = User()
             new_instance.username = args[0]
-            new_instance.passwd = args[1]
+            # new_instance.passwd = args[1]
             print(new_instance.id)
             new_instance.save()
+
+    def do_post(self, arg):
+        """Makes a PodShare post with a caption"""
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** user id missing **")
+            return False
+        if len(args) > 1:
+            key = "User." + args[0]
+            if key not in models.storage.all("User"):
+                print("** user id not found **")
+                return False
+            else:
+                user = models.storage.all("User")[key]
+                user.createPost(args[1])
+                user.save()
+        else:
+            print("** caption missing **")
+            return False
+
+    def do_users(self, arg):
+        """Prints out a list of all the usernames and userid's"""
+        usersDict = models.storage.all("User")
+        for key in usersDict:
+            print("{:<15}\t{}".format(usersDict[key].username, usersDict[key].id))
 
 if __name__ == '__main__':
     PodShareCommand().cmdloop()
