@@ -10,13 +10,13 @@ A social media for sharing short audio clips
 git clone https://github.com/krain9421/Podshare_v1.git
 ```
 
-1. Navigate th the repo directory:
+2. Navigate th the repo directory:
 
 ```bash
 cd PodShare_v1
 ```
 
-1. **Frontend Setup**:
+3. **Frontend Setup**:
 
 Navigate to the frontend directory:
 
@@ -24,13 +24,13 @@ Navigate to the frontend directory:
 cd frontend
 ```
 
-1. Create a virtual environment(Recommended):
+4. Create a virtual environment(Recommended):
 
 ```bash
 python3 -m venv venv
 ```
 
-1. Activate the virtual environment
+5. Activate the virtual environment
 
 - On macOS and Linux:
 
@@ -50,31 +50,31 @@ venv\Scripts\activate.bat
 .\venv\Scripts\Activate.ps1
 ```
 
-1. Install frontend dependencies:
+6. Install frontend dependencies:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-1. Start frontend server
+7. Start frontend server
 
 ```bash
 python3 wsgi.py
 ```
 
-1. **Backend Setup**:
+8. **Backend Setup**:
 
 Navigate to the backend directory:
 
 ```cd ../backend```
 
-1. Create a virtual environment(Recommended):
+9. Create a virtual environment(Recommended):
 
 ```bash
 python3 -m venv venv
 ```
 
-1. Activate the virtual environment
+10. Activate the virtual environment
 
 - On macOS and Linux:
 
@@ -94,13 +94,13 @@ venv\Scripts\activate.bat
 .\venv\Scripts\Activate.ps1
 ```
 
-1. Install backend dependencies:
+11. Install backend dependencies:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-1. Start backend server
+12. Start backend server
 
 ```bash
 python3 wsgi.py
@@ -166,3 +166,11 @@ Attributes:
 
 3. Comment
 Inherits all attributes from the Post model.
+
+## Contributors
+
+<a href="https://github.com/krain9421/Podshare_v1/graphs/contributors">
+	<p align="center">
+  		<img src="https://contrib.rocks/image?repo=krain9421/Podshare_v1" />
+	</p>
+</a>
