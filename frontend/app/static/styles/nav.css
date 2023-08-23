@@ -1,0 +1,26 @@
+nav {
+    width: 25vw;
+    height: 90vh;
+    background-color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    float: left;
+    justify-content: space-around;
+    padding: 0 15px;
+}
+
+nav > *, .profile-names, .profile-names > *, .hover {
+    color: var(--primary);
+    background-color: var(--accent);
+}
+
+.profile-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-card img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}

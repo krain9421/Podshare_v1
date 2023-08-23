@@ -1,0 +1,55 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 5px;
+}
+
+article {
+    flex: 1;
+    margin: 10px;
+}
+
+article.hero {
+    margin-bottom: 150px;
+}
+
+article.form {
+    background-color: var(--neutral);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+form {
+    display: flex;
+    background-color: var(--neutral);
+    flex-direction: column;
+}
+
+form>* {
+    text-align: center;
+    margin: 15px 5px;
+    background-color: var(--neutral);
+    color: var(--secondary)
+}
+
+form input, form button {
+    padding: 10px 15px;
+    color: var(--primary);
+    border-radius: 5px;
+    text-align: left;
+}
+
+form button {
+    text-align: center;
+    font-size: large;
+    background-color: var(--accent);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px  var(--secondary);
+}

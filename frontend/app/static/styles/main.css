@@ -1,0 +1,32 @@
+:root {
+    --primary: #0A2A43;
+    --secondary: #FF6B35;
+    --accent: #00A98F;
+    --neutral: #F8F8F8;
+    --highlight: #FFD700;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--primary);
+    color: var(--neutral);
+}
+
+header {
+    background-color: var(--primary);
+    border-bottom: 3px var(--highlight) solid;
+    height: 10vh;
+}
+
+.logo {
+    color: var(--neutral);
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 5px;
+}

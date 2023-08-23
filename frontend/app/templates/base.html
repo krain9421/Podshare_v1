@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} - PodShare</title>
+    {% block styles %}
+    <link rel="stylesheet" href="../static/styles/main.css">
+    {% endblock styles %}
+</head>
+<body>
+    <header><h1 class="logo">PodShare</h1>
+</header>
+{% block navBar %}
+    <nav>
+        <a href="{{ url_for('home.index')}}">Home</a>
+        <a href="{{ url_for('list.index')}}">List</a>
+        <a href="{{ url_for('profile.index', username='me')}}">Profile</a>
+        <div></div>
+        <div class="profile-card">
+            <img src="../static/assets/profile.png" alt="Profile">
+                <div class="profile-names">
+                    <p>Full name</p>
+                    <p>username</p>
+                </div>
+            <div class="hover">hover</div>
+        </div>
+    </nav>
+{% endblock %}
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

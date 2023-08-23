@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{{ super() }}    
+{% endblock title %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/styles/forms.css">
+{% endblock %}
+
+{% block navBar %}
+
+{% endblock navBar %}
+
+{% block content %}
+
+<main>
+    <article class="hero">
+        <h2>Welcome to PodShare <br> Share your voice.</h2>
+        <br><br>
+        <p>A vibrant community where audio becomes a canvas for your creativity. Dive into a world where every sound
+            carries a story, every note is a glimpse into someone's thoughts, and avery caption adds depth to the
+            experience</p>
+    </article>
+    <article class="form">
+        {% block form %}
+        <form action="#">
+            <h3>Register</h3>
+            <input type="text" name="fname" id="fname" placeholder="Full Name">
+            <input type="text" name="uname" id="uname" placeholder="Username">
+            <input type="email" name="email" id="email" placeholder="Your email Address">
+            <input type="password" name="pwd" id="pwd" placeholder="Pick a Password">
+            <input type="password" name="cpwd" id="cpwd" placeholder="Confirm your Password">
+            <button disabled="disabled">Register</button>
+        </form>
+            
+        {% endblock form %}
+    </article>
+</main>
+
+{% endblock content %}
