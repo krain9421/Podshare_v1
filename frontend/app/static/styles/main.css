@@ -19,6 +19,8 @@ header {
     background-color: var(--primary);
     border-bottom: 3px var(--highlight) solid;
     height: 10vh;
+    position: fixed;
+    width: 100%;
 }
 
 .logo {

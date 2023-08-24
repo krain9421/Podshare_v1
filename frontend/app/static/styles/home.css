@@ -1,0 +1,75 @@
+.home {
+    background-color: var(--highlight);
+    color: var(--primary)
+}
+main {
+    margin-top: 10%;
+}
+
+/* record card styles */
+.new-post {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    margin-left: auto;
+    gap: 12px;
+    width: 70%;
+}
+
+.caption {
+    width: 100%;
+    background-color: var(--neutral);
+    color: var(--primary);
+    height: 35px;
+    border: none;
+    padding: 5px;
+}
+
+.button {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.post {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    margin-left: auto;
+    gap: 12px;
+    width: 70%;
+}
+
+.post-text {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.controls button {
+    border: none;
+    font-size: 110%;
+}
+button.play {
+    font-size: 150%;
+}
