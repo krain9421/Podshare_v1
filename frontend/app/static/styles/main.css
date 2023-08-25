@@ -21,6 +21,7 @@ header {
     height: 10vh;
     position: fixed;
     width: 100%;
+    top: 0;
 }
 
 .logo {
@@ -31,4 +32,18 @@ header {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     padding: 5px;
+}
+
+/* use below class to highlight active page on the nav bar */
+.active-page {
+    background-color: var(--highlight);
+    color: var(--primary)
+}
+
+main {
+    margin-top: 10vh;
+}
+
+hr {
+    margin-left: auto;
 }

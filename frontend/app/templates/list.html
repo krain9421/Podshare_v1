@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{{ super() }}    
+{% endblock title %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/styles/nav.css">
+    <link rel="stylesheet" href="../static/styles/post.css">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <hr>
+        <article class="post">
+            <div class="post-text">
+                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <div>
+                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
+                    <p>2 followers</p>
+                    <p>4 posts</p>
+                </div>
+            </div>
+        </article>
+        <hr>
+        <!--more-->
+        <article class="post">
+            <div class="post-text">
+                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <div>
+                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
+                    <p>2 followers</p>
+                    <p>4 posts</p>
+                </div>
+            </div>
+        </article>
+        <hr>
+        <article class="post">
+            <div class="post-text">
+                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <div>
+                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
+                    <p>2 followers</p>
+                    <p>4 posts</p>
+                </div>
+            </div>
+        </article>
+        <hr>
+        <article class="post">
+            <div class="post-text">
+                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <div>
+                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
+                    <p>2 followers</p>
+                    <p>4 posts</p>
+                </div>
+            </div>
+        </article>
+        <hr>
+        <article class="post">
+            <div class="post-text">
+                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <div>
+                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
+                    <p>2 followers</p>
+                    <p>4 posts</p>
+                </div>
+            </div>
+        </article>
+        <hr>
+    </main>
+{% endblock %}

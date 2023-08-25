@@ -1,11 +1,3 @@
-.home {
-    background-color: var(--highlight);
-    color: var(--primary)
-}
-main {
-    margin-top: 10%;
-}
-
 /* record card styles */
 .new-post {
     padding: 30px 30px;
