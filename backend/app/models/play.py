@@ -1,6 +1,6 @@
-from app.models.basemodel import BaseModel
-from app import db
 import sqlalchemy as sa
+from app import db
+from app.models.basemodel import BaseModel
 
 
 class Play(BaseModel, db.Model):
