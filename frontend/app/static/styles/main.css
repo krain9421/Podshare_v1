@@ -15,6 +15,10 @@
     color: var(--neutral);
 }
 
+body {
+    width: 96%;
+}
+
 header {
     background-color: var(--primary);
     border-bottom: 3px var(--highlight) solid;
