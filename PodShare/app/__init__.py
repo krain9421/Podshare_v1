@@ -27,4 +27,17 @@ def create_app():
     from app.routes.auth import auth_bp
 
     app.register_blueprint(auth_bp)
+
+    # register frontend blueprints
+    from app.routes.index import index_frontend_bp
+    from app.routes.auth import auth_frontend_bp
+    from app.routes.home import home_frontend_bp
+    from app.routes.list import list_frontend_bp
+    from app.routes.profile import profile_frontend_bp
+
+    app.register_blueprint(index_frontend_bp)
+    app.register_blueprint(auth_frontend_bp)
+    app.register_blueprint(home_frontend_bp)
+    app.register_blueprint(list_frontend_bp)
+    app.register_blueprint(profile_frontend_bp)
     return app
