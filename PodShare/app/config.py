@@ -10,6 +10,8 @@ def config_app(app):
     # config app
     app.config['SECRET_KEY'] = getenv('SECRET_KEY', 'secret_key:D')
     app.config['SQLALCHEMY_DATABASE_URI'] = getenv('SQLALCHEMY_DATABASE_URI')
+    app.config["SESSION_PERMANENT"] = False
+    app.config["SESSION_TYPE"] = "filesystem"
 
     # configure CORS
     cors = CORS(app, resources={r'/api/*': {'origins': getenv('FRONTEND_DOMAIN'), 'supports_credentials': True}})

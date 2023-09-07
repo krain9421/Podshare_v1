@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_session import Session
 from app.config import config_app
 from flask_bcrypt import Bcrypt
 
@@ -19,14 +20,17 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
+    Session(app)
 
     with app.app_context():
         db.create_all()
 
     # register blueprints
     from app.routes.auth import auth_bp
+    from app.routes.user import user_bp
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(user_bp)
 
     # register frontend blueprints
     from app.routes.index import index_frontend_bp
