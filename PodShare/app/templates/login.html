@@ -1,12 +1,14 @@
 {% extends 'register.html' %}
 
 {% block form %}
-<form action="#">
+<form action="" method="post">
     <h3>Login</h3>
+        {% if message %}
+            <div class="alert"> {{ message }} </div>
+        {% endif %}
+    <input type="email" name="email" id="email" placeholder="Your email Address" required>
+    <input type="password" name="password" id="password" placeholder="Enter Password" required>
 
-    <input type="email" name="email" id="email" placeholder="Your email Address">
-    <input type="password" name="password" id="password" placeholder="Enter Password">
-
-    <button disabled="disabled">Login</button>
+    <input class="submit-button" type="submit" value="Login">
 </form>
 {% endblock %}

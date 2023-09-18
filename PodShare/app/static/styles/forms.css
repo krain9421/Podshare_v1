@@ -38,14 +38,14 @@ form>* {
     color: var(--secondary)
 }
 
-form input, form button {
+form input, .submit-button {
     padding: 10px 15px;
     color: var(--primary);
     border-radius: 5px;
     text-align: left;
 }
 
-form button {
+.submit-button {
     text-align: center;
     font-size: large;
     background-color: var(--accent);

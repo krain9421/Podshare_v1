@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+500 Internal Error - 
+{{ super() }}    
+{% endblock title %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/styles/error.css">
+{% endblock %}
+
+{% block navBar %}
+{% endblock navBar %}
+
+{% block content %}
+<div class="error-container">
+    <h1>500 Internal Error</h1>
+</div>
+
+{% endblock content %}

@@ -35,6 +35,9 @@ a nav>*,
 .profile-card {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: var(--accent);
+    gap: 20px;
 }
 
 .profile-image {
@@ -42,4 +45,18 @@ a nav>*,
     width: 45px;
     border-radius: 50%;
     background-color: var(--accent);
+}
+
+.hover, .hover > * {
+    background-color: var(--accent);
+    color: var(--primary)
+}
+
+.logout-menu {
+    display: none;
+}
+
+.show-menu {
+    display: block;
+    position: relative;
 }

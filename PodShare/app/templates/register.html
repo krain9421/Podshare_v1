@@ -26,14 +26,19 @@
     </article>
     <article class="form">
         {% block form %}
-        <form action="#">
+        <form action="" method="post">
             <h3>Register</h3>
-            <input type="text" name="fullname" id="fullname" placeholder="Full Name">
-            <input type="text" name="username" id="username" placeholder="Username">
-            <input type="email" name="email" id="email" placeholder="Your email Address">
-            <input type="password" name="password" id="password" placeholder="Pick a Password">
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password">
-            <button disabled="disabled">Register</button>
+
+            {% if message %}
+                <div class="alert"> {{ message }} </div>
+            {% endif %}
+
+            <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="email" name="email" id="email" placeholder="Your email Address" required>
+            <input type="password" name="password" id="password" placeholder="Pick a Password" required>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" required>
+            <input class="submit-button" type="submit" value="Register">
         </form>
             
         {% endblock form %}

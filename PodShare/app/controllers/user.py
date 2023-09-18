@@ -11,11 +11,10 @@ class UserAuthentication:
     def login(self):
         try:
             user = UserController().find_user_by_email()
-            password = request.json.get('password')
+            password = request.form.get('password')
             if not bcrypt.check_password_hash(user.password, password):
                 raise Exception()
             session['user'] = user.to_json()
-
         except Exception:
             raise CustomError('email or password is incorrect', HTTP_401_UNAUTHORIZED)
 
@@ -46,27 +45,27 @@ class UserController:
         if user:
             raise CustomError("User already Exists", HTTP_409_CONFLICT)
         new_user = {
-            'fullname': request.json.get('fullname'),
-            'username': request.json.get('username'),
-            'email': request.json.get('email'),
-            'password': request.json.get('password')
+            'fullname': request.form.get('fullname'),
+            'username': request.form.get('username'),
+            'email': request.form.get('email'),
+            'password': request.form.get('password')
         }
         new_user['password'] = bcrypt.generate_password_hash(new_user['password']).decode()
         new_user = User(**new_user)
         db.session.add(new_user)
         db.session.commit()
-        return generate_response(new_user.to_json(), "User created", HTTP_201_CREATED)
+        return True
     
     def find_user(self, username=None):
-        username = username if username != None else request.json.get('username')
+        username = username if username != None else request.form.get('username')
         user = db.session.query(User).filter_by(username=username).first()
         if not user:
             raise CustomError('User not found', 404)
         return user
     
     def find_user_by_email(self, email=None):
-        email = email if email != None else request.json.get('email')
-        user = db.session.query(User).filter_by(username=email).first()
+        email = email if email != None else request.form.get('email')
+        user = db.session.query(User).filter_by(email=email).first()
         if not user:
             raise CustomError('User not found', 404)
         return user

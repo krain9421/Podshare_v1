@@ -1,8 +1,8 @@
 from os import getenv
 from dotenv import load_dotenv
-from flask import jsonify
+from flask import jsonify, render_template
 from app.utils.errors import CustomError
-from flask_cors import CORS
+from app.utils.constants import HTTP_401_UNAUTHORIZED, HTTP_409_CONFLICT, HTTP_500_INTERNAL_SERVER_ERROR
 
 load_dotenv()
 
@@ -13,8 +13,6 @@ def config_app(app):
     app.config["SESSION_PERMANENT"] = False
     app.config["SESSION_TYPE"] = "filesystem"
 
-    # configure CORS
-    cors = CORS(app, resources={r'/api/*': {'origins': getenv('FRONTEND_DOMAIN'), 'supports_credentials': True}})
 
     # add error handlers
     @app.errorhandler(CustomError)
@@ -22,19 +20,15 @@ def config_app(app):
         response = {
             'error': error.message
         }
-        return jsonify(response), error.status_code
+        if error.status_code == HTTP_409_CONFLICT:
+            return render_template('register.html', message=error.message), HTTP_409_CONFLICT
+        return render_template('login.html', message=error.message), HTTP_401_UNAUTHORIZED
 
     @app.errorhandler(404)
     def handle_not_found_error(error):
-        response = {
-        'error': 'Resource not found',
-        }
-        return jsonify(response), 404
+        return render_template('404.html')
     
     @app.errorhandler(Exception)
     def handle_generic_error(error):
-        response = {
-            'error': 'An unexpected error occurred',
-        }
         print(error)
-        return jsonify(response), 500
+        return render_template('50x.html'), HTTP_500_INTERNAL_SERVER_ERROR

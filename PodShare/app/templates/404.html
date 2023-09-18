@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+404 Not Found - 
+{{ super() }}    
+{% endblock title %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/styles/error.css">
+{% endblock %}
+
+{% block navBar %}
+{% endblock navBar %}
+
+{% block content %}
+<div class="error-container">
+    <h1>Error: 404</h1>
+<br>
+<br>
+<br>
+    <p>Go back: <a href="{{ url_for('home.index') }}">Home</a></p>
+</div>
+{% endblock content %}
