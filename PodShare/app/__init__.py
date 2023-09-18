@@ -27,10 +27,10 @@ def create_app():
 
     # register blueprints
     from app.routes.auth import auth_bp
-    from app.routes.user import user_bp
+    from app.routes.post import post_bp
 
     app.register_blueprint(auth_bp)
-    app.register_blueprint(user_bp)
+    app.register_blueprint(post_bp)
 
     # register frontend blueprints
     from app.routes.index import index_frontend_bp
