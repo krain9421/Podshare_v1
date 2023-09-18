@@ -8,7 +8,7 @@ from app.models.play import Play
 
 
 class Post(BaseModel, db.Model):
-    audio = sa.Column(sa.String, nullable=False)
+    audio = sa.Column(sa.String(60), nullable=False) #VARCHAR requires a length on dialect mysql
     caption = sa.Column(sa.Text, nullable=False)
     user_id = sa.Column(sa.String(60), sa.ForeignKey('user.id'), nullable=False)
     likes = relationship('Like', backref='post')
