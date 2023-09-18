@@ -39,6 +39,19 @@ header {
     padding: 5px;
 }
 
+.notification {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: var(--highlight);
+    color: var(--accent);
+    padding: 10px 20px;
+    z-index: 999;
+    transition: top 0.5s ease-in-out;
+}
+
 /* use below class to highlight active page on the nav bar */
 .active-page {
     background-color: var(--highlight);

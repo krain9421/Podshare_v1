@@ -9,18 +9,18 @@
     {{ super() }}
     <link rel="stylesheet" href="../static/styles/nav.css">
     <link rel="stylesheet" href="../static/styles/post.css">
+    <script type="module" src="../static/scripts/upload.js" defer></script>
 {% endblock %}
 
 {% block content %}
     <main>
-        <article class="new-post">
-            <input type="text" name="caption" id="caption" class="caption" placeholder="Enter Audio Caption">
+        <form method="post" class="new-post">
+            <input type="text" name="caption" id="caption" class="caption" placeholder="Enter Audio Caption" required>
             <div>
-                <input type="file" name="audio-file" id="audio-file" class="audio-file" placeholder="Upload">
-                <button type="button" class="record button">REC</button>
-                <button class="post-button button">Post</button>
+                <input type="file" name="audio-file" id="audio-file" class="audio-file" accept=".mp3, .wav" placeholder="Upload" required>
+                <input type="submit" class="post-button button" value="Post">
             </div>
-        </article>
+        </form>
         <hr>
         <article class="post">
             <div class="post-text">

@@ -54,9 +54,13 @@ a nav>*,
 
 .logout-menu {
     display: none;
+    position: relative;
+    position:absolute;
+    padding: 20px;
+    background-color: var(--primary);
+    transform: translateY(-100%);
 }
 
 .show-menu {
     display: block;
-    position: relative;
 }

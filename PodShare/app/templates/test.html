@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Player</title>
+</head>
+<body>
+    <audio id="audio-player" controls>
+        <source src="" type="audio/mpeg">
+    </audio>
+    <button id="play-button">Play</button>
+    <button id="pause-button">Pause</button>
+
+    <script>
+        // JavaScript code to control audio playback
+        const audioPlayer = document.getElementById('audio-player');
+        const playButton = document.getElementById('play-button');
+        const pauseButton = document.getElementById('pause-button');
+
+        playButton.addEventListener('click', async () => {
+            await audioPlayer.play();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            audioPlayer.pause();
+        });
+
+        // Set the audio source to the Flask route that serves the audio file
+        audioPlayer.src = '/audio';
+    </script>
+</body>
+</html>

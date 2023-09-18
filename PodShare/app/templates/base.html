@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %} - PodShare</title>
+    <script src="../static/scripts/jquery-3.7.1.min.js"></script>
     {% block styles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/styles/main.css">
-    <script src="../static/scripts/jquery-3.7.1.min.js"></script>
     {% endblock styles %}
 </head>
 <body>
     <header>
         <h1 class="logo">PodShare</h1>
     </header>
+    <article class="notification">Hello world</article>
 {% block navBar %}
     <nav>
         <a href="{{ url_for('home.index')}}" class="link home">Home</a>
@@ -41,4 +42,5 @@
     {% block content %}
     {% endblock content %}
 </body>
+<script src="../static/scripts/main.js"></script>
 </html>
