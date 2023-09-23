@@ -63,3 +63,7 @@ form input, .submit-button, .register-button {
     box-shadow: 5px 5px 10px  var(--accent);
     width: 60%;
 }
+
+#welcomeMessage, #welcomeTitle {
+   opacity: 0;
+}

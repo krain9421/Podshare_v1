@@ -1,11 +1,23 @@
-function showNotification(message) {
-  const notification = document.querySelector(".notification");
+$("document").ready(function() {
 
-  notification.innerHTML = message;
-  notification.style.display = "block";
-  notification.style.top = "20";
+  function showNotification(message) {
+    const notification = document.querySelector(".notification");
 
-  setTimeout(() => {
-    notification.style.top = "-50px";
-  }, 5000);
-}
+    notification.innerHTML = message;
+    notification.style.display = "block";
+    notification.style.top = "20";
+
+    setTimeout(() => {
+      notification.style.top = "-50px";
+    }, 5000);
+  }
+
+  $("#welcomeMessage").animate({
+    opacity: '1'
+  }, 2000)
+
+  $("#welcomeTitle").animate({
+    opacity: '1'
+  }, 2000)
+
+});
