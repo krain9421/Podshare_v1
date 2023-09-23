@@ -11,4 +11,15 @@
 
     <input class="submit-button" type="submit" value="Login">
 </form>
+<br>
+<br>
+<br>
+<button id="registerButton" class="register-button">Create a new account</button>
+
+	<script>
+		document.getElementById("registerButton").addEventListener("click", function() {
+
+			window.location.href = "http://127.0.0.1:5000/register";
+			});
+	</script>
 {% endblock %}

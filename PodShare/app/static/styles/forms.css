@@ -38,7 +38,7 @@ form>* {
     color: var(--secondary)
 }
 
-form input, .submit-button {
+form input, .submit-button, .register-button {
     padding: 10px 15px;
     color: var(--primary);
     border-radius: 5px;
@@ -52,4 +52,14 @@ form input, .submit-button {
     border: none;
     border-radius: 15px;
     box-shadow: 5px 5px 10px  var(--secondary);
+}
+
+.register-button {
+    text-align: center;
+    font-size: large;
+    background-color: var(--neutral);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px  var(--accent);
+    width: 60%;
 }
