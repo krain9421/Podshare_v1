@@ -7,9 +7,11 @@ from app.models.play import Play
 
 
 class Comment(BaseModel, db.Model):
-    audio = sa.Column(sa.String(60), nullable=True) #VARCHAR requires a length on dialect mysql
+    audio = sa.Column(
+        sa.String(60), nullable=True
+    )  # VARCHAR requires a length on dialect mysql
     caption = sa.Column(sa.Text, nullable=False)
-    user_id = sa.Column(sa.String(60), sa.ForeignKey('user.id'), nullable=False)
-    post_id = sa.Column(sa.String(60), sa.ForeignKey('post.id'), nullable=False)
-    likes = relationship('Like', backref='comment')
-    plays = relationship('Play', backref='comment')
+    user_id = sa.Column(sa.String(60), sa.ForeignKey("user.id"), nullable=False)
+    post_id = sa.Column(sa.String(60), sa.ForeignKey("post.id"), nullable=False)
+    likes = relationship("Like", backref="comment")
+    plays = relationship("Play", backref="comment")

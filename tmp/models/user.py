@@ -4,6 +4,7 @@
 from models.base_model import BaseModel
 from models.post import Post
 
+
 class User(BaseModel):
     """
     Defines a User class that inherits from BaseModel with the following attributes.
@@ -18,6 +19,7 @@ class User(BaseModel):
     likes (dict)
     lists (dict)
     """
+
     """username = ""
     email = ""
     passwd = ""

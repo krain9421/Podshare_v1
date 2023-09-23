@@ -5,7 +5,7 @@ from app.models.like import Like
 
 class LikeController:
     def like(post_id, post=True):
-        current_user_id = session.get('user').get('id')
+        current_user_id = session.get("user").get("id")
         new_like = Like(user_id=current_user_id)
         if post:
             new_like.post_id = post_id

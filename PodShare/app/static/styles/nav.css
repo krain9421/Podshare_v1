@@ -47,9 +47,13 @@ a nav>*,
     background-color: var(--accent);
 }
 
+.hover > span {
+    font-size: 40px;
+}
+
 .hover, .hover > * {
     background-color: var(--accent);
-    color: var(--primary)
+    color: var(--primary);
 }
 
 .logout-menu {

@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Post module that inherits from a BaseModel."""
 from models.base_model import BaseModel
+
 # from base_model import BaseModel
+
 
 class Post(BaseModel):
     """
@@ -12,6 +14,7 @@ class Post(BaseModel):
     likes (list)
     numberOfPlays (int)
     """
+
     """audioId = ""
     caption = ""
     userId = ""
@@ -26,5 +29,3 @@ class Post(BaseModel):
         self.numberOfPlays = 0
         """Initializes a Post object"""
         super().__init__(*args, **kwargs)
-
-    

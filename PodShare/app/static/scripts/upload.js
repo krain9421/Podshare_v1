@@ -16,7 +16,7 @@ $(
 
     $.ajax({
       type: "POST",
-      url: "/api/post",
+      url: "/api/posts",
       data: formData,
       processData: false,
       contentType: false,

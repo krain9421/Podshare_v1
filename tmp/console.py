@@ -15,24 +15,25 @@ from models.user import User
 from models.post import Post
 from models.comment import Comment
 
-classes = {"BaseModel": BaseModel, "User": User, "Post": Post,
-            "Comment": Comment}
+classes = {"BaseModel": BaseModel, "User": User, "Post": Post, "Comment": Comment}
+
 
 class PodShareCommand(cmd.Cmd):
-    """ PodShare console """
-    prompt = '(podshare) '
-    __logged = False 
+    """PodShare console"""
+
+    prompt = "(podshare) "
+    __logged = False
 
     def do_EOF(self, arg):
-        """ Exits the console """
+        """Exits the console"""
         return True
 
     def emptyline(self):
-        """ overwrites the emptyline method """
+        """overwrites the emptyline method"""
         return False
 
     def do_quit(self, arg):
-        """ Exits the console """
+        """Exits the console"""
         return True
 
     def _key_value_parser(self, args):
@@ -40,11 +41,11 @@ class PodShareCommand(cmd.Cmd):
         new_dict = {}
         for arg in args:
             if "=" in arg:
-                kvp = arg.split('=', 1)
+                kvp = arg.split("=", 1)
                 key = kvp[0]
                 value = kvp[1]
                 if value[0] == value[-1] == '"':
-                    value = shlex.split(value)[0].replace('_', ' ')
+                    value = shlex.split(value)[0].replace("_", " ")
                 else:
                     try:
                         value = int(value)
@@ -91,7 +92,7 @@ class PodShareCommand(cmd.Cmd):
         """if len(args) < 2:
             print("** password missing **")
             return False"""
-        if not re.match(r'[A-Za-z0-9]+', args[0]):
+        if not re.match(r"[A-Za-z0-9]+", args[0]):
             print("** username must contain only characters and numbers ! **")
             return False
         if not self._username_checker(args[0]):
@@ -129,5 +130,6 @@ class PodShareCommand(cmd.Cmd):
         for key in usersDict:
             print("{:<15}\t{}".format(usersDict[key].username, usersDict[key].id))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     PodShareCommand().cmdloop()

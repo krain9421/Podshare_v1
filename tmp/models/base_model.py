@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """This module contains the BaseModel class that defines all common attributes/methods for other classes.
 """
-import uuid # Unique User Identification
+import uuid  # Unique User Identification
 import models
 from datetime import datetime
+
 # from models import storage
 
 
@@ -19,7 +20,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Function that initializes a BaseModel object"""
-        if kwargs: # Condition for initializing a BaseModel object with a dict
+        if kwargs:  # Condition for initializing a BaseModel object with a dict
             for key, value in kwargs.items():
                 if key != "__class__":
                     setattr(self, key, value)
@@ -43,7 +44,7 @@ class BaseModel:
 
     def save(self):
         """Updates the public instance attribute `updated_at` with
-                    the current datetime.
+        the current datetime.
         """
         self.updated_at = datetime.now()
         models.storage.new(self)

@@ -14,13 +14,13 @@ classes = {"User": User, "Post": Post, "Comment": Comment}
 
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""
+
     __file_path = "file.json"
     __users_path = "./users/users.json"
     __posts_path = ""
     __objects = {}
     __users = {}
     __posts = {}
-
 
     def all(self, cls=None):
         """returns the dictionary __objects"""
@@ -59,25 +59,25 @@ class FileStorage:
             json_objects[key] = self.__objects[key].to_dict()
         for key in self.__users:
             json_users[key] = self.__users[key].to_dict()
-        with open(self.__file_path, 'w') as f:
-            json.dump(json_objects,f)
-        with open(self.__users_path, 'w') as f:
-            json.dump(json_users,f)
-        with open(self.__posts_path, 'w') as f:
-            json.dump(self.__posts,f)
+        with open(self.__file_path, "w") as f:
+            json.dump(json_objects, f)
+        with open(self.__users_path, "w") as f:
+            json.dump(json_users, f)
+        with open(self.__posts_path, "w") as f:
+            json.dump(self.__posts, f)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
         try:
-            with open(self.__file_path, 'r') as f:
-                jo =  json.load(f)
+            with open(self.__file_path, "r") as f:
+                jo = json.load(f)
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
         except:
             pass
 
         try:
-            with open(self.__users_path, 'r') as f:
+            with open(self.__users_path, "r") as f:
                 jo = json.load(f)
             for key in jo:
                 self.__users[key] = classes[jo[key]["__class__"]](**jo[key])
@@ -87,7 +87,7 @@ class FileStorage:
     def delete(self, obj=None):
         """delete obj from __objects if it’s inside"""
         if obj is not None:
-            key = obj.__class__.__name__ + '.' + obj.id
+            key = obj.__class__.__name__ + "." + obj.id
             if key in self.__objects:
                 del self.__objects[key]
 

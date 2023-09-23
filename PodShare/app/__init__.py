@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_session import Session
+from flask_status import FlaskStatus
 from app.config import config_app
 from flask_bcrypt import Bcrypt
 
@@ -10,6 +11,7 @@ migrate = Migrate()
 bcrypt = Bcrypt()
 
 from app.models import *
+
 
 def create_app():
     # instantiate flask app
@@ -20,6 +22,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
+    FlaskStatus(app)
     Session(app)
 
     with app.app_context():

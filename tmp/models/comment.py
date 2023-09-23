@@ -2,8 +2,10 @@
 """Comment module that inherits from a BaseModel."""
 from models.base_model import BaseModel
 from models.post import Post
+
 # from base_model import BaseModel
 # from post import Post
+
 
 class Comment(Post):
     """
@@ -18,5 +20,3 @@ class Comment(Post):
     def __init__(self, *args, **kwargs):
         """Initializes a Comment object"""
         super().__init__(*args, **kwargs)
-
-    
