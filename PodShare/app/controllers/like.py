@@ -1,6 +1,8 @@
 from flask import session
 from app import db
 from app.models.like import Like
+from app.utils.response import generate_response
+from app.utils.constants import HTTP_201_CREATED
 
 
 class LikeController:
@@ -13,3 +15,6 @@ class LikeController:
             new_like.comment_id = post_id
         db.session.add(new_like)
         db.session.commit()
+        return generate_response(
+            data={}, message=f"{post_id} Liked", status_code=HTTP_201_CREATED
+        )

@@ -34,7 +34,7 @@ def config_app(app):
 
     @app.errorhandler(404)
     def handle_not_found_error(error):
-        return render_template("404.html")
+        return render_template("404.html"), 404
 
     @app.errorhandler(Exception)
     def handle_generic_error(error):

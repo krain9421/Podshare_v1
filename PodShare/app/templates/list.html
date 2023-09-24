@@ -7,8 +7,8 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/styles/nav.css">
-    <link rel="stylesheet" href="../static/styles/post.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/post.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
         <hr>
         <article class="post">
             <div class="post-text">
-                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div>
                     <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
                     <p>2 followers</p>
@@ -28,7 +28,7 @@
         <!--more-->
         <article class="post">
             <div class="post-text">
-                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div>
                     <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
                     <p>2 followers</p>
@@ -39,7 +39,7 @@
         <hr>
         <article class="post">
             <div class="post-text">
-                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div>
                     <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
                     <p>2 followers</p>
@@ -50,7 +50,7 @@
         <hr>
         <article class="post">
             <div class="post-text">
-                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div>
                     <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
                     <p>2 followers</p>
@@ -61,7 +61,7 @@
         <hr>
         <article class="post">
             <div class="post-text">
-                <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div>
                     <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
                     <p>2 followers</p>

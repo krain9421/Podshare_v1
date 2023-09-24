@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %} - PodShare</title>
-    <script src="../static/scripts/jquery-3.7.1.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/jquery-3.7.1.min.js') }}"></script>
     {% block styles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/styles/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
     {% endblock styles %}
 </head>
 <body>
@@ -17,12 +17,12 @@
     <article class="notification">Hello world</article>
 {% block navBar %}
     <nav>
-        <a href="{{ url_for('home.index')}}" class="link home">Home</a>
-        <a href="{{ url_for('list.index')}}" class="link list">List</a>
-        <a href="{{ url_for('profile.index', username='me')}}" class="link profile">Profile</a>
+        <a href="{{ url_for('home.index') }}" class="link home">Home</a>
+        <a href="{{ url_for('list.index') }}" class="link list">List</a>
+        <a href="{{ url_for('profile.index', username='me') }}" class="link profile">Profile</a>
         <div></div>
         <div class="profile-card">
-            <img src="../static/assets/profile.png" alt="Profile" class="profile-image">
+            <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div class="profile-names">
                     <p>Full name</p>
                     <p>username</p>
@@ -42,5 +42,5 @@
     {% block content %}
     {% endblock content %}
 </body>
-<script src="../static/scripts/main.js"></script>
+<script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
 </html>
