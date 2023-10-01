@@ -1,6 +1,6 @@
 from time import sleep
 from flask import Blueprint, redirect, render_template, url_for, session, Response
-from app.controllers.user import UserAuthentication
+from app.controllers.user import UserAuthentication, UserController
 
 profile_frontend_bp = Blueprint("profile", __name__)
 
@@ -10,7 +10,9 @@ def index(username):
     if username == "me":
         if not UserAuthentication().is_logged_in():
             return redirect(url_for("auth_frontend.login"))
-    return render_template("profile.html", title=username, user=session.get("user"))
+        username = session.get("user").get("username")
+    user = UserController().find_user(username)
+    return render_template("profile.html", title=username, user=user)
 
 
 @profile_frontend_bp.route("/test")

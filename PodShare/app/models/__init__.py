@@ -6,3 +6,4 @@ from .list import List
 from .play import Play
 from .post import Post
 from .user import User
+from .audio import Audio

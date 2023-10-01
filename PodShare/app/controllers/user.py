@@ -55,6 +55,7 @@ class UserController:
             "username": request.form.get("username"),
             "email": request.form.get("email"),
             "password": request.form.get("password"),
+            "bio": request.form.get("bio"),
         }
         new_user["password"] = bcrypt.generate_password_hash(
             new_user["password"]

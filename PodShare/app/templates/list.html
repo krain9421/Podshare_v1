@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ title }}
+{% if title %}
+    {{ title }}
+{% else %}
+    List
+{% endif %}
 {{ super() }}    
 {% endblock title %}
 

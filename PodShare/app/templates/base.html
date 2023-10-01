@@ -22,13 +22,19 @@
         <a href="{{ url_for('profile.index', username='me') }}" class="link profile">Profile</a>
         <div></div>
         <div class="profile-card">
+            {% if user %}
             <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div class="profile-names">
-                    <p>Full name</p>
-                    <p>username</p>
+                    <p>{{ user.fullname }}</p>
+                    <p>{{ user.username }}</p>
                 </div>
-            <div class="hover"><span class="fa fa-ellipsis-v"></span>
-            <div class="logout-menu"><a href="{{ url_for('auth.logout') }}">Logout</a></div></div>
+                <div class="hover"><span class="fa fa-ellipsis-v"></span>
+                <div class="logout-menu"><a href="{{ url_for('auth.logout') }}">Logout</a></div></div>
+            {% else %}
+                <div>
+                    <h3><a href="{{ url_for('auth.login') }}">Login</a></h3>
+                </div>
+                {% endif %}
             <script>
                 $(
                         $('.hover').hover(function() {
@@ -43,4 +49,6 @@
     {% endblock content %}
 </body>
 <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/playback.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/like.js') }}"></script>
 </html>

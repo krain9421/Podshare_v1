@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if title %}
+    {{ title }}
+{% else %}
+    Post
+{% endif %}
+{{ super() }}
+{% endblock title %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/post.css') }}">
+{% endblock %}
+
+
+{% block content %}
+{{ post }}
+<main>
+    <article class="post">
+        <div>{{ post.caption }}
+    </div>
+        
+    </article>
+    <article class="comments">
+        {% for comment in post.comments %}
+        {{comment.caption}}
+        {% endfor %}
+    </article>
+</main>
+{% endblock %}

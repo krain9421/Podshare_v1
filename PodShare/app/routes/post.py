@@ -24,5 +24,5 @@ def all_posts():
 
 @post_frontend_bp.route("/posts/<post_id>", strict_slashes=False)
 def post_page(post_id):
-    post = PostController.get_post_details(post_id)
+    post = PostController().get_post_details(post_id)[0]["data"]
     return render_template("post.html", post=post)

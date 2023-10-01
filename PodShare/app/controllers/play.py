@@ -5,17 +5,18 @@ from app.models.play import Play
 
 
 class PlayController:
-    def stream(self, audio_id):
-        post = db.session.query(Post).filter_by(audio_id=audio_id).first()
-        play = Play(user_id=session.get("user").get("id"), post_id=post.id)
+    def stream(self, post_id):
+        post = db.session.query(Post).filter_by(id=post_id).first()
+        user_id = session.get("user").get("id") if session.get("user") else None
+        play = Play(user_id=user_id, post_id=post.id)
         db.session.add(play)
         db.session.commit()
 
         def generate():
-            with open(f"audio/{audio_id}.mp3", "rb") as f:
+            with open(post.audio[0].url, "rb") as f:
                 data = f.read(1024)
                 while data:
                     yield data
                     data = f.read(1024)
 
-        return Response(generate(), mimetype="audio/mp3")
+        return Response(generate(), mimetype=post.audio[0].mime)

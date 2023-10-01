@@ -18,6 +18,9 @@
 <div class="error-container">
     <h1>Error: 404</h1>
 <br>
+{% if message %}
+<h3>{{ message }}</h3>
+{% endif %}
 <br>
 <br>
     <p>Go back: <a href="{{ url_for('home.index') }}">Home</a></p>

@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ title }}
+{% if title %}
+    {{ title }}
+{% else %}
+    Register
+{% endif %}
 {{ super() }}    
 {% endblock title %}
 
@@ -24,9 +28,9 @@
             carries a story, every note is a glimpse into someone's thoughts, and avery caption adds depth to the
             experience</p>
     </article>
-    <article class="form">
+    <article class="form" style="max-height: 100vh;">
         {% block form %}
-        <form action="" method="post">
+        <form action="{{ url_for('auth.register') }}" method="post">
             <h3>Register</h3>
 
             {% if message %}
@@ -38,6 +42,7 @@
             <input type="email" name="email" id="email" placeholder="Your email Address" required>
             <input type="password" name="password" id="password" placeholder="Pick a Password" required>
             <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" required>
+            <input type="text" name="bio" id="bio" placeholder="Enter a little description about yourself" style="height:100px" required>
             <input class="submit-button" type="submit" value="Register">
         </form>
             

@@ -45,10 +45,12 @@ def create_app():
     from app.routes.home import home_frontend_bp
     from app.routes.list import list_frontend_bp
     from app.routes.profile import profile_frontend_bp
+    from app.routes.post import post_frontend_bp
 
     app.register_blueprint(index_frontend_bp)
     app.register_blueprint(auth_frontend_bp)
     app.register_blueprint(home_frontend_bp)
     app.register_blueprint(list_frontend_bp)
     app.register_blueprint(profile_frontend_bp)
+    app.register_blueprint(post_frontend_bp)
     return app

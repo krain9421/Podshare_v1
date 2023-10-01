@@ -5,7 +5,7 @@ from app.controllers.user import UserAuthentication
 like_bp = Blueprint("like", __name__, url_prefix="/api/like")
 
 
-@like_bp.route("/<post_id>", methods=["POST"])
+@like_bp.route("/posts/<post_id>", methods=["POST"])
 @UserAuthentication().login_required
 def like(post_id):
     """
@@ -13,5 +13,7 @@ def like(post_id):
     field:
         - post: to specify whether it is a post or a comment
     """
+    print(request.json)
     post = True if request.json.get("post") else False
+    print(post_id, "liked")
     return LikeController.like(post_id, post=post)

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ title }}
+Home 
 {{ super() }}    
 {% endblock title %}
 
@@ -22,120 +22,27 @@
             </div>
         </form>
         <hr>
+    {% if feed %}
+        {% for post in feed %}
         <article class="post">
             <div class="post-text">
                 <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
                 <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
+                    <p><span class="full-name">{{ post.user.fullname }}</span> <span>{{ post.user.username }}</span></p>
+                    <p>{{ post.caption }}</p>
                 </div>
             </div>
             <div class="controls">
                 <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
+                <button class="play" data-audio="{{post.id}}" onclick="action(this);"><span class="fa fa-play"><span style="padding: 2px;">{{ post.plays|length }}</span></span></button>
+                <button class="like" data-post="{{ post.id }}"> <span class="fa fa-heart"><span style="padding: 2px;">{{ post.likes|length }}</span></span></button>
                 <button class="share"> <span class="fa fa-share"></span></button>
             </div>
         </article>
         <hr>
-
-        <!--more-->
-        <article class="post">
-            <div class="post-text">
-                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
-                <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
-                <button class="share"> <span class="fa fa-share"></span></button>
-            </div>
-        </article>
-        <hr>
-        <article class="post">
-            <div class="post-text">
-                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
-                <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
-                <button class="share"> <span class="fa fa-share"></span></button>
-            </div>
-        </article>
-        <hr>
-        <article class="post">
-            <div class="post-text">
-                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
-                <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
-                <button class="share"> <span class="fa fa-share"></span></button>
-            </div>
-        </article>
-        <hr>
-        <article class="post">
-            <div class="post-text">
-                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
-                <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
-                <button class="share"> <span class="fa fa-share"></span></button>
-            </div>
-        </article>
-        <hr>
-        <article class="post">
-            <div class="post-text">
-                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
-                <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
-                <button class="share"> <span class="fa fa-share"></span></button>
-            </div>
-        </article>
-        <hr>
-        <article class="post">
-            <div class="post-text">
-                <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile" class="profile-image">
-                <div>
-                    <p><span class="full-name">Emmanuel Nwafor</span> <span>emmo00</span></p>
-                    <p>This is the cation of the audio</p>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="comments"><span class="fa fa-comment"></span></button>
-                <button class="play"><span class="fa fa-play"></span></button>
-                <button class="like"> <span class="fa fa-heart"></span></button>
-                <button class="share"> <span class="fa fa-share"></span></button>
-            </div>
-        </article>
-        <hr>
-        <!--more end-->
+        {% endfor %}
+    {% else %}
+        <article class="post post-text">You are up to date</article>
+    {% endif %}
     </main>
 {% endblock %}
